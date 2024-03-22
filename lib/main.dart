@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:hero_animation_widget/bg_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,7 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: MyHomePage(),
+      home: BgScreen(),
     );
   }
 }
@@ -38,12 +40,19 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ),
       ),
-      body: const Center(
+      body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-              'Hero Animation Widget',
+            SizedBox(
+              child: Hero(
+                tag: 'bg',
+                child: Image.asset(
+                  'assets/images/saving.png',
+                  height: 100,
+                  width: 150,
+                ),
+              ),
             ),
           ],
         ),
