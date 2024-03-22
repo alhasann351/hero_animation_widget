@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: BgScreen(),
+      home: MyHomePage(),
     );
   }
 }
@@ -45,12 +45,22 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             SizedBox(
-              child: Hero(
-                tag: 'bg',
-                child: Image.asset(
-                  'assets/images/saving.png',
-                  height: 100,
-                  width: 150,
+              child: InkWell(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const BgScreen(),
+                    ),
+                  );
+                },
+                child: Hero(
+                  tag: 'bg',
+                  child: Image.asset(
+                    'assets/images/saving.png',
+                    height: 100,
+                    width: 150,
+                  ),
                 ),
               ),
             ),
